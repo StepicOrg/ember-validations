@@ -4,8 +4,7 @@ const {
   A: emberArray,
   Object: EmberObject,
   get,
-  set,
-  run
+  set
 } = Ember;
 
 export default EmberObject.extend({
