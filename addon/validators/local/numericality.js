@@ -1,11 +1,9 @@
 import Ember from 'ember';
-import jquery from 'jquery';
 import Base from 'ember-validations/validators/base';
 import Messages from 'ember-validations/messages';
 import Patterns from 'ember-validations/patterns';
 
 const { get, isEmpty } = Ember;
-const { inArray } = jquery;
 
 export default Base.extend({
   init() {
@@ -45,7 +43,7 @@ export default Base.extend({
       }
 
       if (prop !== undefined && this.options.messages[key] === undefined) {
-        if (inArray(key, Object.keys(this.CHECKS)) !== -1) {
+        if (key.indexOf(Object.keys(this.CHECKS)) !== -1) {
           this.options.count = prop;
         }
         this.options.messages[key] = Messages.render(key, this.options);
