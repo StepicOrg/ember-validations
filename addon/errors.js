@@ -4,12 +4,13 @@ const {
   A: emberArray,
   Object: EmberObject,
   get,
-  set
+  set,
+  run
 } = Ember;
 
 export default EmberObject.extend({
   unknownProperty(property) {
-    set(this, property, emberArray());
+    run.once(() => { set(this, property, emberArray()); });
     return emberArray();
   }
 });
